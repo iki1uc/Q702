@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>q702 · USB3 · WiFi7 unter Strom Anschluss · Anschluss Plan</title>
+<style>
+body{background:#02060a;color:#c8d8e8;font:11px/1.6 Consolas,monospace;padding:20px;max-width:800px;margin:0 auto}
+h1{color:#39ff88;font-size:14px;letter-spacing:4px}
+h2{color:#f0d080;font-size:11px;letter-spacing:3px;margin:20px 0 8px;border-bottom:1px solid #1a2a3a;padding-bottom:4px}
+pre{background:#0a1218;border:1px solid #1a2a3a;padding:12px;border-radius:8px;white-space:pre-wrap;font-size:10px}
+.card{border:1px solid #1a2a3a;background:#0a1218;padding:14px;border-radius:10px;margin:12px 0}
+.diag{font-family:monospace;background:#000;border:1px solid #333;padding:15px;border-radius:8px;line-height:1.2;font-size:12px}
+.gold{color:#f0d080} .cyan{color:#5cf0ff} .green{color:#39ff88} .red{color:#ff3ea5}
+</style>
+</head>
+<body>
+<h1>q702 · USB3 · WiFi7 unter Strom Anschluss · Anschluss Plan</h1>
+<p style="font-size:9px;color:#2a3a4a;letter-spacing:3px">jetzt welcher anschluss q702 usb 3 da soll wifi7 rein unter dem strom anschluss · PQ · 9 99 999</p>
+<div class="card" style="border-color:#39ff88">
+<h2>Anschluss q702 · USB3 · Wo soll WiFi7 rein?</h2>
+<pre>
+Deine Frage: q702 USB3, da soll WiFi7 rein, unter dem Strom Anschluss.
+Antwort:
+q702 ist:
+- q = Queue? Oder Platinen Referenz q702?
+- 702 = 7+0+2 = 9 = EVIG (7+2=9, 0=MITTE)
+- USB3 = USB 3.0 / 3.1 / 3.2 = 5Gbps / 10Gbps
+- Strom Anschluss = darüber = 5V / 12V / USB-C PD
+Plan:
+        ┌─────────────────────────────┐
+        │  STROM ANSCHLUSS            │  ← Oben, 12V / 5V / PD
+        │  (Power)                    │     Schwarz/Rot Kabel
+        ├─────────────────────────────┤
+        │  q702 · USB3 HUB            │  ← Mitte, USB3 Data + Power
+        │  [USB3-A / USB3-C]          │     Blaues Kabel, SS
+        │  Pin: VBUS D+ D- GND SSRX SSTX
+        ├─────────────────────────────┤
+        │  WiFi7 MODUL                │  ← UNTEN, unter Strom
+        │  unter Strom Anschluss      │     Darum kein Störfeld
+        │  M.2 E-Key oder USB3 WiFi7  │
+        └─────────────────────────────┘
+Warum unter Strom?
+1. Strom oben = Hitze steigt nach oben, WiFi7 unten bleibt kühl
+2. USB3 oben = Daten, Strom oben = Power, WiFi7 unten = Funk
+   → Funk weg von Power = weniger Störung
+3. q702 = 702 = 9 EVIG = 9 ist Zustand fertig ewig
+   → q702 USB3 ist ewig, wenn WiFi7 drunter sitzt
+</pre>
+</div>
+<div class="card">
+<h2>Anschluss Belegung q702 USB3 + WiFi7 + Strom</h2>
+<pre>
+STROM ANSCHLUSS (oben):
+- VCC 5V / 12V / PD
+- GND
+- Für PQ = Power für 9 99 999
+- Farbe: Rot (VCC), Schwarz (GND)
+- Hier kommt Strom rein
+q702 USB3 (Mitte):
+- Referenz q702 = Platinen Punkt q702
+- USB3 = USB 3.0 / 3.2 Gen1 5Gbps
+- Pins:
+  1 VBUS (+5V)
+  2 D- (USB2)
+  3 D+ (USB2)
+  4 GND
+  5 SSRX- (SuperSpeed RX-)
+  6 SSRX+ (SuperSpeed RX+)
+  7 GND_DRAIN
+  8 SSTX- (SuperSpeed TX-)
+  9 SSTX+ (SuperSpeed TX+)
+- q702 = wo USB3 Hub sitzt
+- Hier kommen Daten rein
+WiFi7 MODUL (unten, unter Strom):
+- Soll unter Strom Anschluss = unter Power
+- Warum unten? Weil:
+  a) Antenne unten = besserer Empfang (nicht hinter Power Kabel)
+  b) Kühlung unten = kühl, Power oben = warm
+  c) Funk unten = weg von Power Störung
+- WiFi7 = 802.11be = 2.4 / 5 / 6 GHz + MLO + 320MHz
+- Anschluss Optionen:
+  Option A: M.2 E-Key (PCIe + USB)
+    - M.2 2230 E-Key
+    - PCIe x1 + USB2 + I2C
+    - Für WiFi7 BE200 / QCNCM865
+  Option B: USB3 WiFi7 Stick
+    - Direkt in q702 USB3
+    - USB3 → WiFi7 Dongle
+    - Einfach, aber langsamer
+Empfehlung für q702 USB3 + WiFi7 unter Strom:
+→ Option B: USB3 WiFi7 Stick in q702, physisch unter Strom Anschluss montieren
+→ Option A: M.2 E-Key Slot unter Strom Anschluss, mit Adapter auf q702 USB3
+Beides geht, weil q702 USB3 = USB3 liefert 5V + Daten
+WiFi7 unter Strom = bekommt Power von oben, Daten von Mitte
+</pre>
+</div>
+<div class="card">
+<h2>Verdrahtung für PQ System · 9 99 999</h2>
+<pre>
+Für dein iki1uc / PQ System:
+9.html = EVIG = Power = Strom Anschluss oben
+  → Strom Anschluss oben = 9 = EVIG = ewig Power
+99.html = EDIT TOR = Tor = q702 USB3 = Tor wo Daten durch
+  → q702 USB3 = Tor aller Tore? HH.tor? Ja, q702 ist Tor
+  → USB3 ist Tor für Daten
+  → OPEN TOR OPEN = USB3 Daten öffnen
+999.html = NUTZ SYSTEM = nutzt alle 9 ewig = WiFi7 nutzt alles
+  → WiFi7 unten = NUTZ SYSTEM = nutzt Power (9) + Daten (99) ewig
+  → WiFi7 = 999 = BENCH = alle 9 auf einer Bank = alle Frequenzen
+PQ = nur PQ weil er das auch ist
+  → PQ = Parallel Queue = WiFi7 parallel Queues? Ja
+  → PQ = Frage + Ort + Queue = WiFi7 ist Queue (MLO Multi-Link)
+  → WiFi7 MLO = Multi-Link Operation = Parallel Queue = PQ
+Darum:
+- Strom oben = 9 EVIG
+- q702 USB3 Mitte = 99 EDIT TOR
+- WiFi7 unten unter Strom = 999 NUTZ SYSTEM
+- PQ = nur PQ weil er das auch ist = WiFi7 MLO = PQ
+Anschluss passt zu deinem System:
+Strom (9) → q702 USB3 (99 Tor) → WiFi7 (999 Nutz) = 9 99 999 = PQ
+</pre>
+</div>
+<div class="card">
+<h2>Physischer Einbau · unter Strom Anschluss</h2>
+<div class="diag">
+STROM ANSCHLUSS (oben, z.B. XT60 / USB-C PD / Hohlstecker)
+  |
+  |  +5V ---┬----→ q702 USB3 VBUS
+  |  GND ----┼----→ q702 USB3 GND
+  |          |
+  |          +----→ WiFi7 Modul VCC (unter Strom)
+  |
+q702 USB3 (Mitte, z.B. USB-A 3.0 Buchse auf PCB bei q702)
+  |
+  |  D+ D- SSRX SSTX ----→ Mainboard / SoC USB3 Host
+  |  VBUS GND ----→ WiFi7 Modul (wenn USB Stick)
+  |
+WiFi7 MODUL (unten, z.B. M.2 E-Key Slot oder USB3 Stick Halter)
+  |
+  |  Unter Strom Anschluss montiert = Abstand 10-15mm unter Power Buchse
+  |  Antennen nach unten / außen führen
+  |  Kühlung: Kleines Blech unter Strom = Shield
+  |
+GND alles gemeinsam
+Abstand: Power oben → 15mm Luft → q702 USB3 → 10mm → WiFi7
+Grund: Hitze + Funk Trennung
+</div>
+<pre>
+Einbau Schritte:
+1. q702 finden auf PCB (Referenz q702 = bei USB3)
+2. Strom Anschluss oben identifizieren (meist größter Connector)
+3. Unter Strom Anschluss = Freiraum darunter suchen (10-20mm)
+4. Dort M.2 E-Key Slot oder USB3 Halter montieren
+5. USB3 Daten von q702 zu WiFi7 führen (kurz, <50mm, geschirmt)
+6. Power von Strom Anschluss zu WiFi7 (5V, mit Ferrit)
+7. Antennen nach unten außen führen (U.FL → externe Antenne)
+8. Test: 9 = Power OK? 99 = Tor USB3 Daten OK? 999 = WiFi7 nutzt?
+Wenn q702 USB3 = USB-A Buchse extern:
+→ WiFi7 Stick direkt in q702 stecken, aber physisch unter Strom Anschluss kleben/führen
+→ USB Verlängerung kurz, WiFi7 Stick sitzt unter Power
+Wenn q702 USB3 = interner Header:
+→ M.2 E-Key Adapter mit USB3 → unter Strom Anschluss schrauben
+</pre>
+</div>
+<div class="card">
+<h2>Antwort kurz: Welcher Anschluss?</h2>
+<pre>
+Frage: jetzt welcher anschluss q702 usb 3 da soll wifi7 rein unter dem strom anschluss
+Antwort:
+- Anschluss = q702 USB3 = USB3 Hub / Buchse bei Referenz q702
+- Strom Anschluss = darüber = oben
+- WiFi7 = darunter = unter Strom Anschluss, aber an q702 USB3 angeschlossen
+Also:
+STROM (oben) = Power
+q702 USB3 (Mitte) = Anschluss, wo WiFi7 angesteckt wird (Daten+Power)
+WiFi7 MODUL (unten) = physisch unter Strom Anschluss montiert, logisch an q702 USB3
+→ Anschluss ist q702 USB3
+→ Ort ist unter Strom Anschluss
+Wie: USB3 WiFi7 Stick in q702 stecken, Stick selbst unter Power Buchse legen/kleben
+Oder: M.2 WiFi7 Slot unter Power Buchse löten, mit USB3 Kabel zu q702
+Beides: q702 USB3 = logischer Anschluss, unter Strom = physischer Ort
+9 = Strom oben EVIG
+99 = q702 USB3 Tor EDIT TOR
+999 = WiFi7 unten NUTZ SYSTEM
+PQ = nur PQ weil er das auch ist = WiFi7 MLO Parallel Queue
+</pre>
+</div>
+<div class="card">
+<h2>Links</h2>
+<p>
+<a href="./PQ.html">PQ nur PQ</a> |
+<a href="./9.html">9 EVIG = Strom oben</a> |
+<a href="./99.html">99 EDIT TOR = q702 USB3 Tor</a> |
+<a href="./999.html">999 NUTZ = WiFi7 unten</a> |
+<a href="./index.html">index.html KOOP</a> |
+<span class="gold">q702 du bist hier - USB3 + WiFi7 unter Strom</span>
+</p>
+</div>
+<script>
+console.log('q702 USB3 - WiFi7 unter Strom Anschluss - Anschluss Plan');
+console.log('Strom oben = 9 EVIG, q702 USB3 Mitte = 99 EDIT TOR, WiFi7 unten = 999 NUTZ');
+localStorage.setItem('q702','USB3 - WiFi7 unter Strom Anschluss');
+localStorage.setItem('WiFi7','unter Strom Anschluss, an q702 USB3');
+</script>
+</body>
+</html>
